@@ -12,8 +12,10 @@ public class scr_playerStates : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        // Link the player functions script to the variable
+        // Link the player functions script to a variable
         playerFunctions = GetComponent<scr_playerFunctions>();
+
+        // Link the player stats script to a variable
         playerStats = GetComponent<scr_playerStats>();
 	}
 	
@@ -22,7 +24,7 @@ public class scr_playerStates : MonoBehaviour {
     {
         // Run the player state function
         runState(playerState);
-	}
+    }
 
     // Run the player state according to the given argument
     void runState(string stateName)
@@ -37,6 +39,8 @@ public class scr_playerStates : MonoBehaviour {
                 float movementSpeedForward = Input.GetAxis(playerStats.axisVertical) * playerStats.movementSpeed;
 
                 playerFunctions.playerMovement(movementSpeedRight, movementSpeedForward);
+
+                playerFunctions.allignToSurface(.25f);
 
                 break;
         }
