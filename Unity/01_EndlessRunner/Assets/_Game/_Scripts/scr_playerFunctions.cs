@@ -13,18 +13,12 @@ public class scr_playerFunctions : MonoBehaviour {
         // Link the players rigidbody to a variable
         playerRigidbody = GetComponent<Rigidbody>();
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-
-	}
 
     // Move the player around based on the given arguments
-    public void playerMovement(float movementSpeedRight, float movementSpeedForward)
+    public void playerMovement(float inputHorizontal, float inputVertical, float movementSpeed)
     {
         // Store the player vector movement in a new Vector3 variable
-        Vector3 v3 = ((transform.right * (movementSpeedRight * 100f)) + (transform.forward * (movementSpeedForward * 100f))) * Time.deltaTime;
+        Vector3 v3 = ((transform.right * (inputHorizontal * (movementSpeed * 100f))) + (transform.forward * (inputVertical * (movementSpeed * 100f)))) * Time.deltaTime;
         v3.y = playerRigidbody.velocity.y; // Reset the Y velocity to make sure it doesn't skip gravity appliance
         playerRigidbody.velocity = v3; // Apply the velocity variable to the rigidbody velocity of the player
     }
@@ -40,6 +34,12 @@ public class scr_playerFunctions : MonoBehaviour {
 
         // Perform a Raycast check based on the given arguments
         if (Physics.Raycast(castPos, -transform.up, out hit))
-            transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal); // Allign the player to match the detected surface
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.FromToRotation(Vector3.up, hit.normal), 2.5f);
+    }
+
+    public void playerDash(float inputHorizontal, float inputVertical, float inputDash, float dashForce, Transform worldTransform)
+    {
+        if (inputDash != 0f)
+            playerRigidbody.AddForce((worldTransform.right * inputHorizontal * (dashForce * 100f)) + (worldTransform.forward * inputVertical * (dashForce * 100f)));
     }
 }

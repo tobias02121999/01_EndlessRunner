@@ -5,9 +5,12 @@ using UnityEngine;
 public class scr_playerStats : MonoBehaviour {
 
     // Initialize the public variables
-    public float movementSpeed;
+    public Transform worldTransform;
     public string axisHorizontal;
     public string axisVertical;
+    public string buttonDash;
+    public float movementSpeed;
+    public float dashForce;
 
     // Use this for initialization
     void Start ()
