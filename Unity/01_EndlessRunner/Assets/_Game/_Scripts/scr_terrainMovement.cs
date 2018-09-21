@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class scr_terrainMovement : MonoBehaviour {
 
-    [SerializeField]
-    private float terrainMovSpeed;
+    //Reference
+
+    public float terrainMovSpeed;
 
     private void Start()
     {
-        terrainMovSpeed = -5f;
+        terrainMovSpeed = 8f;
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * terrainMovSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * -terrainMovSpeed * Time.deltaTime);
     }
 
 }
