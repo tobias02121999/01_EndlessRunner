@@ -37,9 +37,12 @@ public class scr_playerFunctions : MonoBehaviour {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.FromToRotation(Vector3.up, hit.normal), 2.5f);
     }
 
+    // Dash the player towards his/her current movement direction
     public void playerDash(float inputHorizontal, float inputVertical, float inputDash, float dashForce, Transform worldTransform)
     {
+        // Check if the dash button is being pressed
         if (inputDash != 0f)
+            // Add force to the players rigidbody in order to make him/her dash
             playerRigidbody.AddForce((worldTransform.right * inputHorizontal * (dashForce * 100f)) + (worldTransform.forward * inputVertical * (dashForce * 100f)));
     }
 }
