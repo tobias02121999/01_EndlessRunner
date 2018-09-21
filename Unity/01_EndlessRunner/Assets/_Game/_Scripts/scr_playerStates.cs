@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Initialize the enum variable to store the different player states in
+enum states { DEFAULT }
+
 public class scr_playerStates : MonoBehaviour {
 
     // Initialize the private variables
     private scr_playerFunctions playerFunctions;
     private scr_playerStats playerStats;
-    private string playerState = "DEFAULT";
+    private states playerState = states.DEFAULT;
 
 	// Use this for initialization
 	void Start ()
@@ -27,20 +30,17 @@ public class scr_playerStates : MonoBehaviour {
     }
 
     // Run the player state according to the given argument
-    void runState(string stateName)
+    void runState(states stateName)
     {
         // Scroll through all of the player states, and run the functions corresponding to the given state name
         switch (stateName)
         {
             // The default player state
-            case "DEFAULT":
+            case states.DEFAULT:
 
-                float movementSpeedRight = Input.GetAxis(playerStats.axisHorizontal) * playerStats.movementSpeed;
-                float movementSpeedForward = Input.GetAxis(playerStats.axisVertical) * playerStats.movementSpeed;
-
-                playerFunctions.playerMovement(movementSpeedRight, movementSpeedForward);
-
+                playerFunctions.playerMovement(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), playerStats.movementSpeed);
                 playerFunctions.allignToSurface(.25f);
+                playerFunctions.playerDash(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), Input.GetAxis(playerStats.buttonDash), playerStats.dashForce, playerStats.worldTransform);
 
                 break;
         }
