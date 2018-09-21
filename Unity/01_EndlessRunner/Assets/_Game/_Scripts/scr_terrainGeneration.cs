@@ -10,7 +10,12 @@ public class scr_terrainGeneration : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        terrainPrefab = Instantiate(terrainPrefab, spawnTerrainLoc.position, Quaternion.identity);
+        if(other.tag == "Player")
+        {
+            terrainPrefab = Instantiate(terrainPrefab, spawnTerrainLoc.position, Quaternion.identity);
+            terrainPrefab.transform.parent = null;
+        }
+
     }
 
 }

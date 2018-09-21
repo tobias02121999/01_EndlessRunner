@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scr_terrainMovement : MonoBehaviour {
+public class gameCollider : MonoBehaviour {
 
-    //References
+    //Reference
     private GameObject gameManager;
     private scr_terrainSpeed terrainSpeed;
-
-    public float terrainMovSpeed;
 
     private void Start()
     {
@@ -16,9 +14,13 @@ public class scr_terrainMovement : MonoBehaviour {
         terrainSpeed = gameManager.GetComponent<scr_terrainSpeed>();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        transform.Translate(Vector3.forward * -terrainSpeed.terrainMovSpeed * Time.deltaTime);
+        if(other.tag == "TerrainPrefabCollider")
+        {
+            terrainSpeed.terrainMovSpeed += 1f;
+            Destroy(other.gameObject);
+        }
     }
 
 }

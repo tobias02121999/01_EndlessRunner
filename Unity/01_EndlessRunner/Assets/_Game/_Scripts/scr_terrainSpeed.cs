@@ -8,7 +8,7 @@ public class scr_terrainSpeed : MonoBehaviour {
 
     private void Start()
     {
-        terrainMovSpeed = 1f;
+        terrainMovSpeed = 8f;
     }
 
 }
