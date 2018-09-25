@@ -19,6 +19,7 @@ public class scr_terrainMovement : MonoBehaviour {
     private void Update()
     {
         transform.Translate(Vector3.forward * -terrainSpeed.terrainMovSpeed * Time.deltaTime);
+        Debug.Log(terrainSpeed.terrainMovSpeed);
     }
 
 }
