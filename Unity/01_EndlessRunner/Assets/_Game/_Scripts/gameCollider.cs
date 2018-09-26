@@ -18,8 +18,16 @@ public class gameCollider : MonoBehaviour {
     {
         if(other.tag == "TerrainPrefabCollider")
         {
-            terrainSpeed.terrainMovSpeed += 1f;
+            terrainSpeed.terrainMovSpeed += .5f;
             Destroy(other.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (terrainSpeed.terrainMovSpeed == 30)
+        {
+            terrainSpeed.terrainMovSpeed = 30;            
         }
     }
 
