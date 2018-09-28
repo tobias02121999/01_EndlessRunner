@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class scr_rowController : MonoBehaviour {
 
-    public float speed;
+    public GameObject gameManager;
 	
 	// Update is called once per frame
 	void Update ()
     {
-        transform.position += transform.forward * speed;
+        transform.position += transform.forward * gameManager.GetComponent<scr_gameManager>().globalMovementSpeed;
 	}
 }

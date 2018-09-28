@@ -17,7 +17,7 @@ public class scr_terrainGeneration : MonoBehaviour {
             terrainPrefab = Instantiate(terrainPrefab, spawnTerrainLoc.position, Quaternion.identity);
             terrainPrefab.transform.parent = null;
             objects[Random.Range(0, objects.Length)].SetActive(true);
-            //generationTrigger.enabled = !generationTrigger.enabled;
+            generationTrigger.enabled = !generationTrigger.enabled;
 
         }
 
