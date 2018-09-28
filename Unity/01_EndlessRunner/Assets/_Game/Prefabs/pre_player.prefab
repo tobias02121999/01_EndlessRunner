@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114291925880894328}
   - component: {fileID: 114499825478153338}
   - component: {fileID: 114842020585314954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pre_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1773269888490422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0.5, z: -7.06}
+  m_LocalPosition: {x: 0, y: 0.5, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4635471b8594104f852e2632ddbefb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  axisHorizontal: Keyboard Arrows Horizontal
-  axisVertical: Keyboard Arrows Vertical
+  worldTransform: {fileID: 0}
+  axisHorizontal: Keyboard WASD Horizontal
+  axisVertical: Keyboard WASD Vertical
+  buttonDash: Keyboard WASD Dash
+  movementSpeed: 3.5
+  dashForce: 7.5

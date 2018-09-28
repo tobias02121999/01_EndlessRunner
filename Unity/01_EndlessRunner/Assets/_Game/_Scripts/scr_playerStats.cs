@@ -11,16 +11,4 @@ public class scr_playerStats : MonoBehaviour {
     public string buttonDash;
     public float movementSpeed;
     public float dashForce;
-
-    // Use this for initialization
-    void Start ()
-    {
-
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 }
