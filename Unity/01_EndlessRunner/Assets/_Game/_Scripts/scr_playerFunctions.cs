@@ -84,8 +84,17 @@ public class scr_playerFunctions : MonoBehaviour {
         } 
         else
         {
-            playerRigidbody.isKinematic = true;
+            playerRigidbody.useGravity = true;
+            GetComponent<BoxCollider>().enabled = true;
             playerRenderer.material = playerMaterial;
         }
+    }
+
+    public bool checkPositionTrigger(float positionZ)
+    {
+        if (transform.localPosition.z <= positionZ)
+            return true;
+        else
+            return false;
     }
 }
