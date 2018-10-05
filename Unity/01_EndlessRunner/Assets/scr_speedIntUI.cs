@@ -19,7 +19,7 @@ public class scr_speedIntUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        speedText.text = (gameManager.globalMovementSpeed*100).ToString();
+        speedText.text = ((gameManager.globalMovementSpeed*100)-9f).ToString();
         distanceText.text = player.position.z.ToString("0");
 	}
 }
