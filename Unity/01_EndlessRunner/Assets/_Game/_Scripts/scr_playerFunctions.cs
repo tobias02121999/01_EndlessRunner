@@ -6,6 +6,8 @@ public class scr_playerFunctions : MonoBehaviour {
 
     // Initialize the private variables
     private Rigidbody playerRigidbody;
+    private float dashSpeed;
+    private bool isDashing;
 
 	// Use this for initialization
 	void Start ()
@@ -40,9 +42,12 @@ public class scr_playerFunctions : MonoBehaviour {
     // Dash the player towards his/her current movement direction
     public void playerDash(float inputHorizontal, float inputVertical, float inputDash, float dashForce, Transform worldTransform)
     {
-        // Check if the dash button is being pressed
+        // Add force to the players rigidbody in order to make him/her dash
         if (inputDash != 0f)
-            // Add force to the players rigidbody in order to make him/her dash
-            playerRigidbody.AddForce((worldTransform.right * inputHorizontal * (dashForce * 100f)) + (worldTransform.forward * inputVertical * (dashForce * 100f)));
+            isDashing = true;
+        else
+            isDashing = false;
+
+        playerRigidbody.AddForce(((worldTransform.right * inputHorizontal * (dashForce * 100f)) + (worldTransform.forward * inputVertical * (dashForce * 100f))) * dashSpeed);
     }
 }
