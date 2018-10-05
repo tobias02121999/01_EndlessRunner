@@ -313,7 +313,64 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 253781285}
-    m_RemovedComponents: []
+    - target: {fileID: 114194292463230684, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: dashForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194292463230684, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: dashDampening
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114347673742613960, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: dashForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114347673742613960, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: dashDampening
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114905882401449198, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: dashForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114905882401449198, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: dashDampening
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23942923165278710, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1cefa66438c7ee4448384effaf7ec704, type: 2}
+    - target: {fileID: 23364306780354638, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23634511479936172, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194292463230684, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: playerMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 1cefa66438c7ee4448384effaf7ec704, type: 2}
+    - target: {fileID: 114194292463230684, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3,
+        type: 2}
+      propertyPath: invulnerabilityMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ae8182f1da3d8a489be5318945ee7b8, type: 2}
+    m_RemovedComponents:
+    - {fileID: 33707672532829798, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3, type: 2}
+    - {fileID: 23364306780354638, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: d6086d4f2ea7f124d8e2d1a9015c5fa3, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1831110784

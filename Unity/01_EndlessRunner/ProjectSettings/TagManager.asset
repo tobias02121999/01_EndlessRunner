@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TerrainPrefabCollider
   - TerrainRemoveCollider
+  - Obstacle
   layers:
   - Default
   - TransparentFX

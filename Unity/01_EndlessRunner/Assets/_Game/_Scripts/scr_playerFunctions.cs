@@ -6,14 +6,17 @@ public class scr_playerFunctions : MonoBehaviour {
 
     // Initialize the private variables
     private Rigidbody playerRigidbody;
-    private float dashSpeed;
+    private Renderer playerRenderer;
     private bool isDashing;
+    private bool obstacleIsHit;
+    private float dashSpeed;
 
 	// Use this for initialization
 	void Start ()
     {
         // Link the players rigidbody to a variable
         playerRigidbody = GetComponent<Rigidbody>();
+        playerRenderer = GetComponentInChildren<Renderer>();
 	}
 
     // Move the player around based on the given arguments
@@ -40,14 +43,49 @@ public class scr_playerFunctions : MonoBehaviour {
     }
 
     // Dash the player towards his/her current movement direction
-    public void playerDash(float inputHorizontal, float inputVertical, float inputDash, float dashForce, Transform worldTransform)
-    {
-        // Add force to the players rigidbody in order to make him/her dash
-        if (inputDash != 0f)
+    public void playerDash(float inputHorizontal, float inputVertical, float inputDash, float dashForce, float dashDampening, Transform worldTransform)
+    { 
+        if (inputDash != 0f && !isDashing)
+        {
+            dashSpeed = 1f;
             isDashing = true;
-        else
+        }
+
+        if (inputDash == 0f)
             isDashing = false;
 
+        if (dashSpeed >= dashDampening)
+            dashSpeed -= dashDampening;
+
+        // Add force to the players rigidbody in order to make him/her dash
         playerRigidbody.AddForce(((worldTransform.right * inputHorizontal * (dashForce * 100f)) + (worldTransform.forward * inputVertical * (dashForce * 100f))) * dashSpeed);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+            obstacleIsHit = true;
+        else
+            obstacleIsHit = false;
+    }
+
+    public bool obstacleHitCheck()
+    {
+        return obstacleIsHit;
+    }
+
+    public void setInvulnerability(Material playerMaterial, Material invulnerabilityMaterial, bool activated)
+    {
+        if (activated)
+        {
+            playerRigidbody.useGravity = false;
+            GetComponent<BoxCollider>().enabled = false;
+            playerRenderer.material = invulnerabilityMaterial;
+        } 
+        else
+        {
+            playerRigidbody.isKinematic = true;
+            playerRenderer.material = playerMaterial;
+        }
     }
 }

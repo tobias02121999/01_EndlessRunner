@@ -226,4 +226,5 @@ MonoBehaviour:
   axisVertical: Keyboard WASD Vertical
   buttonDash: Keyboard WASD Dash
   movementSpeed: 3.5
-  dashForce: 7.5
+  dashForce: 10
+  dashDampening: 0.2

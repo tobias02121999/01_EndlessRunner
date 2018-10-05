@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Initialize the enum variable to store the different player states in
-enum states { DEFAULT }
+enum states { DEFAULT, HIT }
 
 public class scr_playerStates : MonoBehaviour {
 
@@ -40,7 +40,18 @@ public class scr_playerStates : MonoBehaviour {
 
                 playerFunctions.playerMovement(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), playerStats.movementSpeed);
                 playerFunctions.allignToSurface(.25f);
-                playerFunctions.playerDash(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), Input.GetAxis(playerStats.buttonDash), playerStats.dashForce, playerStats.worldTransform);
+                playerFunctions.playerDash(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), Input.GetAxis(playerStats.buttonDash), playerStats.dashForce, playerStats.dashDampening, playerStats.worldTransform);
+
+                if (playerFunctions.obstacleHitCheck())
+                    playerState = states.HIT;
+
+                break;
+
+            case states.HIT:
+
+                playerFunctions.playerMovement(0f, -.5f, playerStats.movementSpeed);
+                playerFunctions.allignToSurface(.25f);
+                playerFunctions.setInvulnerability(playerStats.playerMaterial, playerStats.invulnerabilityMaterial, true);
 
                 break;
         }
