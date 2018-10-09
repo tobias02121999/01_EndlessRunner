@@ -41,7 +41,6 @@ public class scr_playerStates : MonoBehaviour {
                 playerFunctions.playerMovement(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), playerStats.movementSpeed);
                 playerFunctions.allignToSurface(.25f);
                 playerFunctions.playerDash(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), Input.GetAxis(playerStats.buttonDash), playerStats.dashForce, playerStats.dashDampening, playerStats.worldTransform);
-                playerFunctions.setInvulnerability(playerStats.playerMaterial, playerStats.invulnerabilityMaterial, false);
 
                 if (playerFunctions.obstacleHitCheck())
                     playerState = states.HIT;
@@ -53,12 +52,6 @@ public class scr_playerStates : MonoBehaviour {
                 playerFunctions.playerMovement(0f, -.5f, playerStats.movementSpeed);
                 playerFunctions.allignToSurface(.25f);
                 playerFunctions.setInvulnerability(playerStats.playerMaterial, playerStats.invulnerabilityMaterial, true);
-
-                if (playerFunctions.checkPositionTrigger(-6.5f))
-                    playerState = states.DEFAULT;
-
-                Debug.Log(playerFunctions.checkPositionTrigger(-6.5f));
-                Debug.Log(transform.position.z);
 
                 break;
         }
