@@ -13,6 +13,7 @@ public class scr_playerStats : MonoBehaviour {
     public float movementSpeed;
     public float dashForce;
     public float dashDampening;
+    public int rowID = 0;
 
     public Material playerMaterial;
     public Material invulnerabilityMaterial;

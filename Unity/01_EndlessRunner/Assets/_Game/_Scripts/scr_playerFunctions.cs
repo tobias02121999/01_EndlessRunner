@@ -61,22 +61,27 @@ public class scr_playerFunctions : MonoBehaviour {
         playerRigidbody.AddForce(((worldTransform.right * inputHorizontal * (dashForce * 100f)) + (worldTransform.forward * inputVertical * (dashForce * 100f))) * dashSpeed);
     }
 
+    // Check for collision
     void OnCollisionEnter(Collision collision)
     {
+        // Check for collision with objects tagged as 'Obstacle'
         if (collision.gameObject.tag == "Obstacle")
-            obstacleIsHit = true;
+            obstacleIsHit = true; // Tell the player that it is currently colliding with an obstacle
         else
-            obstacleIsHit = false;
+            obstacleIsHit = false; // Tell the player that it is currently not colliding with an obstacle
     }
 
+    // Return if the player is currently colliding with an obstacle
     public bool obstacleHitCheck()
     {
         return obstacleIsHit;
     }
 
+
+    // Activate or deactivate the player properties required for the 'invulnerability' state
     public void setInvulnerability(Material playerMaterial, Material invulnerabilityMaterial, bool activated)
     {
-        if (activated)
+        if (activated) // If the player is invulnerable
         {
             playerRigidbody.useGravity = false;
             GetComponent<BoxCollider>().enabled = false;

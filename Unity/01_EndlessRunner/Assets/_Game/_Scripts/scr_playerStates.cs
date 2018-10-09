@@ -38,9 +38,9 @@ public class scr_playerStates : MonoBehaviour {
             // The default player state
             case states.DEFAULT:
 
-                playerFunctions.playerMovement(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), playerStats.movementSpeed);
+                playerFunctions.playerMovement(Input.GetAxis(playerStats.axisHorizontal), 0f, playerStats.movementSpeed);
                 playerFunctions.allignToSurface(.25f);
-                playerFunctions.playerDash(Input.GetAxis(playerStats.axisHorizontal), Input.GetAxis(playerStats.axisVertical), Input.GetAxis(playerStats.buttonDash), playerStats.dashForce, playerStats.dashDampening, playerStats.worldTransform);
+                playerFunctions.playerDash(Input.GetAxis(playerStats.axisHorizontal), 0f, Input.GetAxis(playerStats.buttonDash), playerStats.dashForce, playerStats.dashDampening, playerStats.worldTransform);
                 playerFunctions.setInvulnerability(playerStats.playerMaterial, playerStats.invulnerabilityMaterial, false);
 
                 if (playerFunctions.obstacleHitCheck())
