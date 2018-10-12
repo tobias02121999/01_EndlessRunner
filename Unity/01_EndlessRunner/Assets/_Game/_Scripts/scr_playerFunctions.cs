@@ -62,7 +62,7 @@ public class scr_playerFunctions : MonoBehaviour {
     }
 
     // Check for collision
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         // Check for collision with objects tagged as 'Obstacle'
         if (collision.gameObject.tag == "Obstacle")
@@ -93,6 +93,8 @@ public class scr_playerFunctions : MonoBehaviour {
             GetComponent<BoxCollider>().enabled = true;
             playerRenderer.material = playerMaterial;
         }
+
+        Debug.Log(obstacleIsHit);
     }
 
     public bool checkPositionTrigger(float positionZ)

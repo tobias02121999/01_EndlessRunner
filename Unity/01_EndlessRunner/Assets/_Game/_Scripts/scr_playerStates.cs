@@ -57,9 +57,6 @@ public class scr_playerStates : MonoBehaviour {
                 if (playerFunctions.checkPositionTrigger(-6.5f))
                     playerState = states.DEFAULT;
 
-                Debug.Log(playerFunctions.checkPositionTrigger(-6.5f));
-                Debug.Log(transform.position.z);
-
                 break;
         }
     }
